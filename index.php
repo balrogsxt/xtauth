@@ -26,7 +26,7 @@
 <body>
 <h2>欢迎使用七空幻音授权登录SDK文件</h2>
 <h2>点击下方按钮即可开始授权登录</h2>
-<a href="./connect.php"><img src="login.png" alt="点击开始授权登录"></a>
+<a href="./connect.php"><img src="http://cos.acgxt.com/images/login.png" alt="点击开始授权登录"></a>
 
 </body>
 </html>

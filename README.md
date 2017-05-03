@@ -16,8 +16,9 @@
 	   'access_token'=>$access_token,
 	    'scope'=>'id,user,name,sex,level,exp,coin,avatar,ban,site,email,group,sexid'
     ]);
-$data = json_decode($data,true);
-$data = $data['data'];
+    $data = json_decode($data,true);
+    $data = $data['data'];
+    var_dump($data);
 ## 其他方法XtAuth类
     public function quit()退出当前授权用户
     public function saveAccessToken($token)保存access_token储存7天

@@ -102,7 +102,7 @@ class XtAuth{
 
 
 
-    private function xt_encode(string $text,$k=null){
+    private function xt_encode($text,$k=null){
         $k = $k==null?$this->appkey:$k;
         $key = pack('H*', md5(bin2hex(($k))));
         $ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
@@ -111,7 +111,7 @@ class XtAuth{
         $text = $iv.$text;
         return base64_encode($text);
     }
-	private function xt_decode(string $text,$k=null){
+	private function xt_decode($text,$k=null){
 	    $k = $k==null?$this->appkey:$k;
         $key = pack('H*',md5(bin2hex(($k))));
         $ivSize = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);

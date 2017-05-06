@@ -17,7 +17,7 @@ if(isset($_GET['exit'])){
 //php获取方法
 $data = $XtAuth->get('user',[
 	'access_token'=>$access_token,
-	'scope'=>'id,user,name,sex,level,exp,coin,avatar,ban,site,email,group,sexid'
+	'scope'=>'id,user,name,sex,level,exp,coin,avatar,ban,site,email,group,sexid,content'
 ]);
 $data = json_decode($data,true);
 $data = $data['data'];
@@ -52,6 +52,7 @@ $data = $data['data'];
 		<li>邮箱:<?=$data['email']?></li>
 		<li>权限:<?=$data['group']?></li>
 		<li>性别(数字):<?=$data['sexid']?></li>
+		<li>签名:<?=$data['content']?></li>
 		<li><a href="?exit=true">退出登录</a></li>
 	</ul>
 </div>
@@ -71,6 +72,7 @@ $data = $data['data'];
 			<li>邮箱:{{info.email}}</li>
 			<li>权限:{{info.group}}</li>
 			<li>性别(数字):{{info.sexid}}</li>
+			<li>签名:{{info.content}}</li>
 			<li><a href="?exit=true">退出登录</a></li>
 		</ul>
 	</div>
@@ -86,7 +88,7 @@ $data = $data['data'];
 			axios.get('http://api.acgxt.com/interfaces/user',{
 				params:{
 					access_token:'<?=$access_token?>',
-					scope:'id,user,name,sex,level,exp,coin,avatar,ban,site,email,group,sexid'
+					scope:'id,user,name,sex,level,exp,coin,avatar,ban,site,email,group,sexid,content'
 				}
 			}).then(function(req){
 				live.info = req.data.data

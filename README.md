@@ -43,3 +43,12 @@
 * 203 access_token已过期(7天内有效)
 * 204 第三方授权登录已关闭
 * 205 第三方请求来源地址错误
+
+
+# xtauth for wordpress
+## 插件使用方法
+* 1.下载或克隆到wp-content/plugins/目录下
+* 2.进入后台开启XtAuth
+* 3.wordpress菜单中配置Appid与Appkey
+* 4.进入wp-login.php进行测试
+* 5.完成

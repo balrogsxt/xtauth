@@ -1,10 +1,10 @@
 # xtauth
 七空幻音oauth2.0授权登录sdk for php
 * config.php配置appid与appkey和回调地址
-* 接口地址: http://api.acgxt.com
+* 接口地址: https://api.acgxt.com
 
 ## 获取用户数据
-接口地址:http://api.acgxt.com/interfaces/user
+接口地址:https://api.acgxt.com/interfaces/user
 参数:access_token、scope
 请求方法:GET
 参数说明:

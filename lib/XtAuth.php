@@ -79,23 +79,27 @@ class XtAuth{
 	    return $this->http($u);
     }
     private function http($url){
-	    $curl=curl_init($url);
-	    curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
-	    $cookie = "";
-	    curl_setopt($curl, CURLOPT_COOKIE,$cookie);
-	    $outPut=curl_exec($curl);
-	    return $outPut;
-    }
-    public function http_request($url,$data = null){
         $curl=curl_init($url);
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
-        $cookie = "";
-        curl_setopt($curl, CURLOPT_COOKIE,$cookie);
-        if(!is_null($data)){
-            curl_setopt($curl,CURLOPT_POSTFIELDS,$data);
-        }
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
         $outPut=curl_exec($curl);
         return $outPut;
+    }
+    private function http_request($url,$data = null,$header=[]){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        if (!empty($data)){
+            curl_setopt($curl, CURLOPT_HTTPHEADER,$header);
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        }
+        curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($curl);
+        curl_close($curl);
+        return $output;
     }
 
 
